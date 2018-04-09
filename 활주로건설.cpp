@@ -1,8 +1,20 @@
 // Created by Dooho on 2018. 4. 9..
 //
 //
-// 180408 삼성SWexpert 코딩테스트 준비 (난이도 3)
-// 코드 재사용성에 대해서..
+/*
+ * 180408 삼성 SW expert 코딩테스트 준비
+ *
+ * Row-major로 한 번 순회하고, column-major로 다시 한 번 순회하는 구조입니다.
+ * 엄청 까다로운 알고리즘적 사고를 요구하지는 않지만, 여러가지 경우의 수에 대비해서 조건을 철저하게 지키는게 어렵네요.
+ * 1) 앞 칸과 현재 칸이 같은 레벨일 경우
+ * 2) 앞 칸보다 현재 칸이 한 레벨 높을 경우
+ * 3) 앞 칸보다 현재 칸이 한 레벨 낮을 경우
+ * 4) 앞 칸과 현재 칸이 두 레벨 이상 차이날 경우
+ *
+ * 각각의 경우에 대해서 생각해봐야 합니다.
+ * loop를 돌 때 맨 첫번째 칸과 맨 마지막 칸을 제대로 점검하는지 체크하는 것도 중요하구요.
+ */
+
 
 #include<iostream>
 #include<vector>
@@ -34,6 +46,8 @@ int main(int argc, char** argv)
         }
 
         int result = 0;
+
+        // Row-major로 순회하기
         for (int i = 0; i < N; i++) {
             int pastHeight = land[i][0];
             int pastSameLevel = 0;
