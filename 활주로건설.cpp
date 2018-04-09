@@ -1,8 +1,7 @@
-// Created by Dooho on 2018. 4. 9..
-//
-//
 /*
  * 180408 삼성 SW expert 코딩테스트 준비
+ * 4014. [모의 SW 역량테스트] 활주로 건설
+ * 
  *
  * Row-major로 한 번 순회하고, column-major로 다시 한 번 순회하는 구조입니다.
  * 엄청 까다로운 알고리즘적 사고를 요구하지는 않지만, 여러가지 경우의 수에 대비해서 조건을 철저하게 지키는게 어렵네요.
@@ -102,7 +101,8 @@ int main(int argc, char** argv)
                 result++;
             }
         }
-
+        
+        // Column-major로 순회하기
         for (int i = 0; i < N; i++) {
             int pastHeight = land[0][i];
             int pastSameLevel = 0;
