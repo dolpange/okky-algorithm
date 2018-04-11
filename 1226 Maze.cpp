@@ -16,6 +16,7 @@
 
 using namespace std;
 
+// 목적지에 도착하면 true를 리턴하고, 목적지가 아닐 경우라면 해당 칸을 막은 다음, queue에 넣어주는 함수입니다.
 bool checkBox(int (&maze)[16][16], int row, int col, queue <tuple<int,int>> &fringe) {
     if (maze[row][col] == 3) {
         return true;
@@ -54,6 +55,9 @@ int main() {
             fringe.pop();
             int& element = maze[row][col];
             element = 1;
+            
+            // 상하좌우, 총 4번의 경우에 대하여, 막혀있지 않다면 checkBox 함수를 호출하는 부분입니다.
+            // 안전하게 row와 col의 범위도 동시에 체크해줬습니다.
             if (row+1 < 16 && maze[row+1][col] != 1) {
                 if (checkBox(maze, row+1, col, fringe) == true) {
                     answer = 1;
